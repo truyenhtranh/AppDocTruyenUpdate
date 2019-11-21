@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="#363535"
+    tools:context=".activity.GioiThieuTruyenActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/imgtruyen"
+        android:id="@+id/imgGioiThieuTruyen"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"/>
+
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:text="TIEU HOANG THU VA TIEU HOANG THUC"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:text="Tấc Giả: Đang Cập Nhật"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:text="Số Chapter: 123"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_below="@+id/imgGioiThieuTruyen"
+            android:layout_alignParentBottom="true"
+            android:text="Nội Dung: Đang Cập Nhật"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:onClick="dsChapter"
+            android:layout_marginTop="20dp"
+            android:text="Danh Sach Chap ->>>"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</ScrollView>

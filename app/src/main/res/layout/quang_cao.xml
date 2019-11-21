@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/imgtruyen1"
+        android:id="@+id/imgQuangCao"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
+        android:id="@+id/rltLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/imgQuangCao">
+
+        <ImageView
+            android:src="@drawable/imgtruyen"
+            android:padding="3dp"
+            android:background="@drawable/bg_img_quang_cao"
+            android:id="@+id/imgViewQuangcao"
+            android:layout_width="70dp"
+            android:scaleType="fitXY"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp" />
+        <TextView
+            android:background="@drawable/bg_text_quang_cao"
+            android:textStyle="bold"
+            android:textColor="#CCFAF9F9"
+            android:textSize="17sp"
+            android:layout_toRightOf="@id/imgViewQuangcao"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tvTitle"
+            android:text="Tiểu Hoàng Thư Và Tiểu Hoàng Thúc"
+            android:maxLines="2"
+            android:layout_marginRight="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</RelativeLayout>

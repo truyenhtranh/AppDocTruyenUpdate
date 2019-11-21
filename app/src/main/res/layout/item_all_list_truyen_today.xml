@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E2E2E"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvItemtoday"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:id="@+id/imgAnh"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/huyennguyen" />
+
+                <TextView
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/tvTenChap"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#B42E2E2E"
+                    android:gravity="center"
+                    android:text="Chapter"
+                    android:textColor="#E6E6E6"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:id="@+id/tvTenTruyen"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="Tên Truyện"
+        android:textColor="#A4A4A4"
+        android:textSize="20sp" />
+
+
+</LinearLayout>

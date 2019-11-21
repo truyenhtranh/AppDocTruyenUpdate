@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    android:background="#363535">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <fragment
+            android:id="@+id/fragQuangCao"
+            android:name="com.example.appdoctruyen.fragment.FragmentQuangCao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <fragment
+            android:id="@+id/fragListTruyenToday"
+            android:name="com.example.appdoctruyen.fragment.Fragment_List_Truyen_Today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:id="@+id/fragtruyenMoi"
+            android:name="com.example.appdoctruyen.fragment.Fragment_Truyen_Moi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:id="@+id/fragHuyenNguyen"
+            android:name="com.example.appdoctruyen.fragment.Fragment_Huyen_Nguyen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

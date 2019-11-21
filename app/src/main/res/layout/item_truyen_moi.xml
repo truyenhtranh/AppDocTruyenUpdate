@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lnLinearLayoutCardview"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp">
+
+        <ImageView
+            android:id="@+id/imgViewTruyenMoi"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:background="#363535"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imgtruyen" />
+    </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:id="@+id/tvViewTuyenMoi"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="#363535"
+            android:gravity="center"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:text="Tieu hong thu va tieu hobg thuc"
+            android:textColor="#DCFFFFFF" />
+
+
+</LinearLayout>
