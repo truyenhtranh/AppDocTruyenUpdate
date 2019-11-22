@@ -17,13 +17,14 @@ import com.example.appdoctruyen.model.TruyenMous;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TruyenMoiAdapter extends RecyclerView.Adapter<TruyenMoiAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<TruyenMoi> arrayList;
+    List<TruyenMoi> arrayList;
 
-    public TruyenMoiAdapter(Context context, ArrayList<TruyenMoi> arrayList) {
+    public TruyenMoiAdapter(Context context, List<TruyenMoi> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }

@@ -25,10 +25,10 @@ public class AllListTruyenTodayAdapter extends ArrayAdapter<AllListTruyenToday> 
     private Context context;
     private ArrayList<AllListTruyenToday> allListTruyenTodays;
 
-    public AllListTruyenTodayAdapter(@NonNull Context context, int resource, @NonNull List<AllListTruyenToday> objects) {
+    public AllListTruyenTodayAdapter(@NonNull Context context, int resource, @NonNull ArrayList<AllListTruyenToday> objects) {
         super(context, resource, objects);
         this.context = context;
-        this.allListTruyenTodays = (ArrayList<AllListTruyenToday>) objects;
+        this.allListTruyenTodays = objects;
 
     }
     public void nhantext(String s) {
@@ -59,7 +59,7 @@ public class AllListTruyenTodayAdapter extends ArrayAdapter<AllListTruyenToday> 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             convertView = inflater.inflate(R.layout.item_all_list_truyen_today, null);
 
@@ -79,7 +79,8 @@ public class AllListTruyenTodayAdapter extends ArrayAdapter<AllListTruyenToday> 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, GioiThieuTruyenActivity.class);
+                    Intent intent = new Intent(v.getContext(), GioiThieuTruyenActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }
             });

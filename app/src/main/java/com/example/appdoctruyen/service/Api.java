@@ -13,13 +13,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
 
-    private static Retrofit  retrofit = null;
+    private static Retrofit retrofit = null;
 
-    public  static  Retrofit getClient(String url){
+    public static Retrofit getClient(String url) {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                                        .readTimeout(10000, TimeUnit.MILLISECONDS)
-                .writeTimeout(10000,TimeUnit.MILLISECONDS)
-                .connectTimeout(10000,TimeUnit.MILLISECONDS)
+                .readTimeout(10000, TimeUnit.MILLISECONDS)
+                .writeTimeout(10000, TimeUnit.MILLISECONDS)
+                .connectTimeout(10000, TimeUnit.MILLISECONDS)
                 .retryOnConnectionFailure(true)
                 .protocols(Arrays.asList(Protocol.HTTP_1_1))
                 .build();
