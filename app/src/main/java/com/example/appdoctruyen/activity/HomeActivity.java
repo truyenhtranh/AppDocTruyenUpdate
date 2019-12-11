@@ -1,9 +1,12 @@
 package com.example.appdoctruyen.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.appdoctruyen.R;
 import com.example.appdoctruyen.adapter.ViewPagerHomeAdapter;
@@ -20,6 +23,20 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Thông Báo!!!!");
+        builder.setMessage("Do dùng Web Free nên ảnh truyện sẽ đươc load châm hơn bình thường mong các bạn thông cảm. Vuốt sang để chuyển ảnh truyện");
+        builder.setCancelable(false);
+
+        builder.setNegativeButton("Đã Hiểu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
         anhxa();
         init();

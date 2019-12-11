@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.DocTruyenActivity"></activity>
+        <activity android:name=".activity.DocTruyenQuangCaoActivity"></activity>
+        <activity android:name=".activity.DSChapHuyenNguyenActivity" />
+        <activity android:name=".activity.GTHuyenNguyenActivity" />
+        <activity android:name=".activity.DSChapterQuangCaoActivity" />
+        <activity android:name=".activity.GTQuangCaoActivity" />
+        <activity android:name=".activity.GTTruyenMoiActivity" />
+        <activity android:name=".activity.DSChapTruyenMoiActivity" />
+        <activity android:name=".activity.DSChapPlayListTodayActivity" />
+        <activity android:name=".activity.PlayListTodayActivity" />
+        <activity android:name=".activity.DocTruyenActivity" />
         <activity android:name=".activity.DanhSachChapActivity" />
         <activity android:name=".activity.GioiThieuTruyenActivity" />
         <activity android:name=".activity.ListTruyenTodayActivity" />

@@ -1,6 +1,9 @@
 package com.example.appdoctruyen.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.appdoctruyen.R;
+import com.example.appdoctruyen.activity.GioiThieuTruyenActivity;
+import com.example.appdoctruyen.activity.PlayListTodayActivity;
 import com.example.appdoctruyen.model.ListTruyenToday;
 import com.squareup.picasso.Picasso;
 
@@ -44,9 +49,23 @@ public class ListTruyenTodayAdapter extends ArrayAdapter<ListTruyenToday> {
 
         }
 
-        ListTruyenToday listTruyenToday = getItem(position);
+        final ListTruyenToday listTruyenToday = getItem(position);
         Picasso.with(getContext()).load(listTruyenToday.getHinh()).into(viewHoder.imgViewTruyenToday);
         viewHoder.tvTenTruyenToday.setText(listTruyenToday.getTen());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle c = new Bundle();
+                c.putSerializable("listTruyenToday",listTruyenToday);
+                Intent intent = new Intent(v.getContext(), PlayListTodayActivity.class);
+                intent.putExtra("listTruyenToday",c);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getContext().startActivity(intent);
+            }
+        });
+
         return convertView;
     }
 }

@@ -13,40 +13,35 @@ import com.example.appdoctruyen.model.AllListTruyenToday;
 import com.example.appdoctruyen.model.ListTruyenToday;
 import com.squareup.picasso.Picasso;
 
-public class GioiThieuTruyenActivity extends AppCompatActivity {
-    AllListTruyenToday allListTruyenToday;
+public class PlayListTodayActivity extends AppCompatActivity {
+
     ImageView imageView;
     TextView ten,chap;
+    ListTruyenToday listTruyenToday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_gioi_thieu_truyen);
+
         imageView = findViewById(R.id.imgGioiThieuTruyen);
         ten = findViewById(R.id.tenTruyenGT);
         chap = findViewById(R.id.tvSochapGT);
 
-        Bundle b = getIntent().getBundleExtra("allListTruyenToday");
+        Bundle c = getIntent().getBundleExtra("listTruyenToday");
+        listTruyenToday = (ListTruyenToday) c.getSerializable("listTruyenToday");
 
+        ten.setText(listTruyenToday.getTen());
+        chap.setText(listTruyenToday.getChapter());
 
-        allListTruyenToday = (AllListTruyenToday) b.getSerializable("allListTruyenToday");
-
-
-        ten.setText(allListTruyenToday.getTen());
-        chap.setText(allListTruyenToday.getChapter());
-
-        Picasso.with(this).load(allListTruyenToday.getHinh()).into(imageView);
-
-
+        Picasso.with(this).load(listTruyenToday.getHinh()).into(imageView);
     }
 
     public void dsChapter(View view) {
-        Bundle b = new Bundle();
-        b.putSerializable("allListTruyenToday",allListTruyenToday);
-        Intent intent = new Intent(GioiThieuTruyenActivity.this,DanhSachChapActivity.class);
-        intent.putExtra("allListTruyenToday",b);
+        Bundle c = new Bundle();
+        c.putSerializable("listTruyenToday",listTruyenToday);
+        Intent intent = new Intent(PlayListTodayActivity.this,DSChapPlayListTodayActivity.class);
+        intent.putExtra("listTruyenToday",c);
         startActivity(intent);
     }
-
 }

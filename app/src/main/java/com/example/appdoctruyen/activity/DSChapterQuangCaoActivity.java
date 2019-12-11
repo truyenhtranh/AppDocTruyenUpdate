@@ -13,9 +13,12 @@ import android.widget.Toast;
 
 import com.example.appdoctruyen.R;
 import com.example.appdoctruyen.adapter.ChapterAdapter;
+import com.example.appdoctruyen.adapter.QuangCaoChapAdapter;
 import com.example.appdoctruyen.model.AllListTruyenToday;
+import com.example.appdoctruyen.model.QuangCao;
 import com.example.appdoctruyen.model.chapter;
 import com.example.appdoctruyen.service.ApiChapter;
+import com.example.appdoctruyen.service.apiDSChapQuangCao;
 import com.example.appdoctruyen.service.interfaceChap;
 
 import org.json.JSONArray;
@@ -23,35 +26,32 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class DanhSachChapActivity extends AppCompatActivity implements interfaceChap {
+public class DSChapterQuangCaoActivity extends AppCompatActivity implements interfaceChap {
 
-    AllListTruyenToday allListTruyenToday;
+    QuangCao quangCao;
     Dialog dialog;
     TextView tenTruyen;
     ListView listView;
     ArrayList<chapter> arrChap;
-    ChapterAdapter chapterAdapter;
+    QuangCaoChapAdapter chapterAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_danh_sach_chap);
 
+        setContentView(R.layout.activity_danh_sach_chap);
         tenTruyen = findViewById(R.id.tenTruyenDSC);
         listView = findViewById(R.id.lvListDanhSachChapter);
 
-        Bundle b = getIntent().getBundleExtra("allListTruyenToday");
-        allListTruyenToday = (AllListTruyenToday) b.getSerializable("allListTruyenToday");
+        Bundle b = getIntent().getBundleExtra("quangCao");
+        quangCao = (QuangCao) b.getSerializable("quangCao");
 
-        tenTruyen.setText(allListTruyenToday.getTen());
+        tenTruyen.setText(quangCao.getNoiDung());
         arrChap = new ArrayList<>();
-        new ApiChapter(this,allListTruyenToday.getIdListTruyen()).execute();
-
+        new apiDSChapQuangCao(this,quangCao.getIdQuangCao()).execute();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
 
             }
         });
@@ -61,7 +61,7 @@ public class DanhSachChapActivity extends AppCompatActivity implements interface
 
 
     public void adialog(View view) {
-        dialog = new Dialog(DanhSachChapActivity.this);
+        dialog = new Dialog(DSChapterQuangCaoActivity.this);
         dialog.setContentView(R.layout.dialog);
         dialog.show();
     }
@@ -69,12 +69,13 @@ public class DanhSachChapActivity extends AppCompatActivity implements interface
     @Override
     public void ketThuc(String data) {
         try{
-        JSONArray array = new JSONArray(data);
-        for (int i = 0; i<array.length();i++){
-            chapter chapter = new chapter(array.getJSONObject(i));
-            arrChap.add(chapter);
-        }
-            chapterAdapter = new ChapterAdapter(this,0,arrChap);
+            JSONArray array = new JSONArray(data);
+            for (int i = 0; i<array.length();i++){
+                chapter chapter = new chapter(array.getJSONObject(i));
+
+                arrChap.add(chapter);
+            }
+            chapterAdapter = new QuangCaoChapAdapter(this,0,arrChap);
             listView.setAdapter(chapterAdapter);
         }catch (JSONException e){
             e.printStackTrace();
@@ -90,5 +91,4 @@ public class DanhSachChapActivity extends AppCompatActivity implements interface
     @Override
     public void biloi() {
         //Toast.makeText(this,"loi",Toast.LENGTH_SHORT).show();
-    }
-}
+    }}

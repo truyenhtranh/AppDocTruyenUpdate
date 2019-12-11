@@ -1,5 +1,6 @@
 package com.example.appdoctruyen.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdoctruyen.R;
+import com.example.appdoctruyen.activity.DanhSachChapActivity;
+import com.example.appdoctruyen.activity.ListTruyenTodayActivity;
 import com.example.appdoctruyen.adapter.TruyenMoiAdapter;
 import com.example.appdoctruyen.model.TruyenMoi;
 import com.example.appdoctruyen.service.ApiService;
@@ -61,19 +64,13 @@ public class Fragment_Truyen_Moi extends Fragment {
             public void onResponse(Call<List<TruyenMoi>> call, Response<List<TruyenMoi>> response) {
                 truyenMois  = (ArrayList<TruyenMoi>) response.body();
 
-//                for (int i =0; i<truyenMois.size();i++){
-//
-//                    view = LayoutInflater.from(getActivity()).inflate(R.layout.item_truyen_moi, null);
-//                    TextView textView = view.findViewById(R.id.tvTuyenMoi);
-//                    ImageView imageView = view.findViewById(R.id.imgTruyenMoi);
-//
-//                    Picasso.with(getActivity()).load(truyenMois.get(i).getAnhTruyen()).into(imageView);
-//                    textView.setText(truyenMois.get(i).getTenTruyen());
-//                      CardView cardView = view.findViewById(R.id.cvCardView);
-//                      cardView.setRadius(20);
-//
-//                    linearLayout.addView(view);
-//                }
+                tvAllTuyenMoi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), ListTruyenTodayActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
                 truyenMoiAdapter = new TruyenMoiAdapter(getActivity(), truyenMois);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());

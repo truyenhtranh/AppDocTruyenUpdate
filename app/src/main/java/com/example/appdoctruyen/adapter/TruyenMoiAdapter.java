@@ -1,7 +1,8 @@
 package com.example.appdoctruyen.adapter;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdoctruyen.R;
+import com.example.appdoctruyen.activity.DSChapTruyenMoiActivity;
+import com.example.appdoctruyen.activity.DanhSachChapActivity;
+import com.example.appdoctruyen.activity.DocTruyenActivity;
+import com.example.appdoctruyen.activity.GTTruyenMoiActivity;
+import com.example.appdoctruyen.activity.GioiThieuTruyenActivity;
 import com.example.appdoctruyen.model.TruyenMoi;
-import com.example.appdoctruyen.model.TruyenMous;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 public class TruyenMoiAdapter extends RecyclerView.Adapter<TruyenMoiAdapter.ViewHolder>{
@@ -42,10 +47,23 @@ public class TruyenMoiAdapter extends RecyclerView.Adapter<TruyenMoiAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        TruyenMoi truyenMoi = arrayList.get(position);
+        final  TruyenMoi truyenMoi = arrayList.get(position);
+
 
         holder.textView.setText(truyenMoi.getTenTruyen());
         Picasso.with(context).load(truyenMoi.getAnhTruyen()).into(holder.imageView);
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putSerializable("truyenMoi",truyenMoi);
+                Intent intent = new Intent(context,GTTruyenMoiActivity.class);
+                intent.putExtra("truyenMoi",b);
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -63,5 +81,7 @@ public class TruyenMoiAdapter extends RecyclerView.Adapter<TruyenMoiAdapter.View
             imageView = itemView.findViewById(R.id.imgViewTruyenMoi);
             textView = itemView.findViewById(R.id.tvViewTuyenMoi);
         }
+
+
     }
 }

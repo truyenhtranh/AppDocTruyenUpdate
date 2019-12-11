@@ -23,6 +23,7 @@
         android:layout_height="400dp"/>
 
         <TextView
+            android:id="@+id/tenTruyenGT"
             android:layout_alignParentBottom="true"
             android:text="TIEU HOANG THU VA TIEU HOANG THUC"
             android:textColor="#fff"
@@ -32,13 +33,14 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:layout_alignParentBottom="true"
-            android:text="Tấc Giả: Đang Cập Nhật"
+            android:text="Tác Giả: Đang Cập Nhật"
             android:textColor="#fff"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvSochapGT"
             android:layout_alignParentBottom="true"
             android:text="Số Chapter: 123"
             android:textColor="#fff"

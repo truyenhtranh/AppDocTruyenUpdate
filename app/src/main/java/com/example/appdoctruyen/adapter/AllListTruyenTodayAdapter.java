@@ -2,6 +2,7 @@ package com.example.appdoctruyen.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,7 @@ public class AllListTruyenTodayAdapter extends ArrayAdapter<AllListTruyenToday> 
         }
 
         if (allListTruyenTodays.size() > 0) {
-            AllListTruyenToday allListTruyenToday = this.allListTruyenTodays.get(position);
+            final AllListTruyenToday allListTruyenToday = this.allListTruyenTodays.get(position);
 
             TextView tenTruyen = convertView.findViewById(R.id.tvTenTruyen);
             TextView tenChap = convertView.findViewById(R.id.tvTenChap);
@@ -79,7 +80,11 @@ public class AllListTruyenTodayAdapter extends ArrayAdapter<AllListTruyenToday> 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Bundle b = new Bundle();
+                    b.putSerializable("allListTruyenToday",allListTruyenToday);
                     Intent intent = new Intent(v.getContext(), GioiThieuTruyenActivity.class);
+                    intent.putExtra("allListTruyenToday",b);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }

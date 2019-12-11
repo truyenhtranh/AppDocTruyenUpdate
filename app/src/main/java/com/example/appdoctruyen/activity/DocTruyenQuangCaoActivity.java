@@ -2,35 +2,27 @@ package com.example.appdoctruyen.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.appdoctruyen.R;
-import com.example.appdoctruyen.model.HuyenNguyen;
-import com.example.appdoctruyen.model.chapter;
 import com.example.appdoctruyen.service.ApiDocTruyenChapter;
-import com.example.appdoctruyen.service.interfaceChap;
+import com.example.appdoctruyen.service.ApiDocTruyenQuangCaoChapter;
 import com.example.appdoctruyen.service.layanhve;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class DocTruyenActivity extends AppCompatActivity implements layanhve {
+public class DocTruyenQuangCaoActivity extends AppCompatActivity implements layanhve {
 
     ArrayList<String> anh;
     ImageView imageView;
@@ -54,7 +46,7 @@ public class DocTruyenActivity extends AppCompatActivity implements layanhve {
 
         Toast.makeText(this, "" + idChap, Toast.LENGTH_LONG).show();
 
-        new ApiDocTruyenChapter(this, idChap).execute();
+        new ApiDocTruyenQuangCaoChapter(this, idChap).execute();
 
     }
 
@@ -90,15 +82,15 @@ public class DocTruyenActivity extends AppCompatActivity implements layanhve {
             sotrang = anh.size();
             doctruyen(0);
 
-            gestureDetector = new GestureDetector(this, new myGestrue());
-            scaleGestureDetector = new ScaleGestureDetector(this,new myScale());
+            gestureDetector = new GestureDetector(this, new DocTruyenQuangCaoActivity.myGestrue());
+            scaleGestureDetector = new ScaleGestureDetector(this,new DocTruyenQuangCaoActivity.myScale());
 
             imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
 
                     gestureDetector.onTouchEvent(event);
-                   // scaleGestureDetector.onTouchEvent(event);
+                    // scaleGestureDetector.onTouchEvent(event);
                     return true;
                 }
             });
@@ -122,7 +114,7 @@ public class DocTruyenActivity extends AppCompatActivity implements layanhve {
         }
     }
     class myScale extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-         float scale = 1.0F , onstar = 0 , onand =0;
+        float scale = 1.0F , onstar = 0 , onand =0;
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
             scale *=detector.getScaleFactor();

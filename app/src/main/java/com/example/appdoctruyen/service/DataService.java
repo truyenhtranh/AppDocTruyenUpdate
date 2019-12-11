@@ -5,12 +5,12 @@ import com.example.appdoctruyen.model.HuyenNguyen;
 import com.example.appdoctruyen.model.ListTruyenToday;
 import com.example.appdoctruyen.model.QuangCao;
 import com.example.appdoctruyen.model.TruyenMoi;
-import com.example.appdoctruyen.model.TruyenMous;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+
 
 public interface DataService {
 
@@ -28,4 +28,5 @@ public interface DataService {
 
     @GET("allListTruyenToday.php")
     Call<List<AllListTruyenToday>> getAllListTruyenToday();
+
 }

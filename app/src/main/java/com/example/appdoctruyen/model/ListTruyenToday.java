@@ -3,7 +3,9 @@ package com.example.appdoctruyen.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ListTruyenToday {
+import java.io.Serializable;
+
+public class ListTruyenToday implements Serializable {
 
     @SerializedName("idListTruyen")
     @Expose
@@ -14,6 +16,9 @@ public class ListTruyenToday {
     @SerializedName("hinh")
     @Expose
     private String hinh;
+    @SerializedName("chapter")
+    @Expose
+    private String chapter;
 
     public String getIdListTruyen() {
         return idListTruyen;
@@ -38,5 +43,14 @@ public class ListTruyenToday {
     public void setHinh(String hinh) {
         this.hinh = hinh;
     }
+
+    public String getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(String chapter) {
+        this.chapter = chapter;
+    }
+
 
 }

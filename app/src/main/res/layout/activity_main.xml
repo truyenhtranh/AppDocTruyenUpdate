@@ -4,11 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CAC4C4"
+    android:orientation="vertical"
     tools:context=".activity.MainActivity">
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="neext"
-    android:onClick="next"/>
+
+    <ImageView
+        android:onClick="next"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/imgtruyen" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logotdc" />
 
 </LinearLayout>

@@ -9,44 +9,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appdoctruyen.R;
-import com.example.appdoctruyen.model.AllListTruyenToday;
 import com.example.appdoctruyen.model.ListTruyenToday;
+import com.example.appdoctruyen.model.TruyenMoi;
 import com.squareup.picasso.Picasso;
 
-public class GioiThieuTruyenActivity extends AppCompatActivity {
-    AllListTruyenToday allListTruyenToday;
+public class GTTruyenMoiActivity extends AppCompatActivity {
+
     ImageView imageView;
     TextView ten,chap;
+    TruyenMoi truyenMoi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_gioi_thieu_truyen);
+
         imageView = findViewById(R.id.imgGioiThieuTruyen);
+
         ten = findViewById(R.id.tenTruyenGT);
         chap = findViewById(R.id.tvSochapGT);
 
-        Bundle b = getIntent().getBundleExtra("allListTruyenToday");
+        Bundle b = getIntent().getBundleExtra("truyenMoi");
 
+        truyenMoi = (TruyenMoi) b.getSerializable("truyenMoi");
 
-        allListTruyenToday = (AllListTruyenToday) b.getSerializable("allListTruyenToday");
+        ten.setText(truyenMoi.getTenTruyen());
+        chap.setText(truyenMoi.getChapter());
 
-
-        ten.setText(allListTruyenToday.getTen());
-        chap.setText(allListTruyenToday.getChapter());
-
-        Picasso.with(this).load(allListTruyenToday.getHinh()).into(imageView);
-
-
+        Picasso.with(this).load(truyenMoi.getAnhTruyen()).into(imageView);
     }
 
     public void dsChapter(View view) {
         Bundle b = new Bundle();
-        b.putSerializable("allListTruyenToday",allListTruyenToday);
-        Intent intent = new Intent(GioiThieuTruyenActivity.this,DanhSachChapActivity.class);
-        intent.putExtra("allListTruyenToday",b);
+        b.putSerializable("truyenMoi",truyenMoi);
+        Intent intent = new Intent(GTTruyenMoiActivity.this,DSChapTruyenMoiActivity.class);
+        intent.putExtra("truyenMoi",b);
         startActivity(intent);
     }
-
 }

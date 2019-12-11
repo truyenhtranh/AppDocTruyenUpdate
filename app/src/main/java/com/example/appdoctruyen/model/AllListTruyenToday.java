@@ -4,7 +4,9 @@ package com.example.appdoctruyen.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AllListTruyenToday {
+import java.io.Serializable;
+
+public class AllListTruyenToday implements Serializable {
 
     @SerializedName("idListTruyen")
     @Expose
