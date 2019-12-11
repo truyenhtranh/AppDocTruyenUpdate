@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Thông Báo!!!!");
-        builder.setMessage("Do dùng Web Free nên ảnh truyện sẽ đươc load châm hơn bình thường mong các bạn thông cảm. Vuốt sang để chuyển ảnh truyện");
+        builder.setMessage("Do dùng Web Free nên ảnh truyện sẽ đươc load châm hơn bình thường mong các bạn thông cảm. Vuốt sang để chuyển ảnh truyện.");
         builder.setCancelable(false);
 
         builder.setNegativeButton("Đã Hiểu", new DialogInterface.OnClickListener() {
